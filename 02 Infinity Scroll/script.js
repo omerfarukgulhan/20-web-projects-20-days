@@ -19,6 +19,7 @@ window.addEventListener("scroll", endOfPage);
 
 // Get photos from api
 async function getPhotos() {
+  loader.hidden = false
   try {
     const response = await fetch(apiUrl);
     photosArray = await response.json();
