@@ -19,13 +19,14 @@ window.addEventListener("scroll", endOfPage);
 
 // Get photos from api
 async function getPhotos() {
-  loader.hidden = false
+  loader.hidden = false;
+  disableScroll();
   try {
     const response = await fetch(apiUrl);
     photosArray = await response.json();
     displayPhotos();
   } catch (error) {
-    alert(error)
+    alert(error);
   }
 }
 
@@ -70,6 +71,7 @@ function imageLoaded() {
   if (imagesLoaded === totalImages) {
     ready = true;
     loader.hidden = true;
+    enableScroll();
   }
 }
 
@@ -79,4 +81,19 @@ function endOfPage() {
     ready = false;
     getPhotos();
   }
+}
+
+// Disable when loading
+function disableScroll() {
+  // Get the current page scroll position
+  scrollTop = document.documentElement.scrollTop;
+  (scrollLeft = document.documentElement.scrollLeft),
+    // if any scroll is attempted, set this to the previous value
+    (window.onscroll = function () {
+      window.scrollTo(scrollLeft, scrollTop);
+    });
+}
+
+function enableScroll() {
+  window.onscroll = function () {};
 }
