@@ -43,7 +43,7 @@ video {
   min-width: 580px;
   min-height: 304px;
   color: black;
-  margin: 0 auto;
+  margin:0 auto;
   padding: 25px 50px;
   border-radius: 5px;
   z-index: 2;
