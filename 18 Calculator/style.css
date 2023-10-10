@@ -69,6 +69,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
   background: #c7c7c7;
+  user-select: none;
 }
 
 button:hover {
@@ -83,7 +84,7 @@ button:focus {
   outline: none;
 }
 
-.operators {
+.operator {
   background: gray;
   color: white;
   font-size: 30px;
